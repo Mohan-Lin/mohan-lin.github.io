@@ -6,7 +6,7 @@ subtitle: Ph.D. Candidate in Control Science and Engineering
 
 profile:
   align: right
-  image: mohan-lin.jpg
+  image: mohan-lin.JPG
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>555 your office number</p>
