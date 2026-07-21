@@ -2,11 +2,11 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Ph.D. Candidate in Control Science and Engineering
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: mohan-lin.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>555 your office number</p>
@@ -27,8 +27,4 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
-
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I received the B.E. degree from the Department of Automation, Hangzhou Dianzi University, Hangzhou, China, in 2022. I am currently pursuing the Ph.D. degree in Control Science and Engineering at Hangzhou Dianzi University and working as a visiting Ph.D. student at The Hong Kong Polytechnic University. My research focuses on uncertainty quantification and optimal operation in power systems and extends to electricity market bidding, multi-agent games in microgrids and distribution network optimization. I am experienced in developing optimization models using Python/MATLAB with Gurobi and conducting transient stability simulations using Python with PowerWorld.
