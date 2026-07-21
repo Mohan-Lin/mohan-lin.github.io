@@ -42,3 +42,9 @@ latest_posts:
 ---
 
 I received the B.E. degree from the Department of Automation, Hangzhou Dianzi University, Hangzhou, China, in 2022. I am currently pursuing the Ph.D. degree in Control Science and Engineering at Hangzhou Dianzi University and working as a visiting Ph.D. student at The Hong Kong Polytechnic University. My research focuses on uncertainty quantification and optimal operation in power systems and extends to electricity market bidding, multi-agent games in microgrids and distribution network optimization. I am experienced in developing optimization models using Python/MATLAB with Gurobi and conducting transient stability simulations using Python with PowerWorld.
+
+<div style="text-align: center; margin-top: 2.5rem; margin-bottom: 1.2rem;">
+  <h2 style="font-weight: 700; margin: 0;">NEWS</h2>
+</div>
+
+{% include news.liquid limit=true %}
