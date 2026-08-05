@@ -12,10 +12,8 @@ nav_order: 5
 ### Reviewer
 
 - Applied Energy
-- 
-- ...
-
-### Professional Memberships
-
-- IEEE Student Member
-- ...
+- International Journal of Electrical Power & Energy Systems
+- Sustainable Energy, Grids and Networks
+- Electric Power Systems Research
+- Global Energy Interconnection
+- Energy Strategy Reviews

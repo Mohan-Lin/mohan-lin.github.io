@@ -1,9 +1,49 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
+"Appl. Energy":
+  url: https://www.sciencedirect.com/journal/applied-energy
+  color: "#f97316"
+
+"AEPS":
+  url: https://www.aeps-info.com/
   color: "#00369f"
 
-"PhysRev":
-  url: https://journals.aps.org/
+"GEI":
+  url: https://www.sciencedirect.com/journal/global-energy-interconnection
+  color: "#0e7490"
 
-"Vision":
-  color: "#009f36"
+"PST":
+  url: https://www.epet-info.com/
+  color: "#7c3aed"
+
+"SETA":
+  url: https://www.sciencedirect.com/journal/sustainable-energy-technologies-and-assessments
+  color: "#15803d"
+
+"CSEE":
+  url: http://www.pcsee.org/
+  color: "#b91c1c"
+
+"TSG":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5165411
+  color: "#1d4ed8"
+
+"T-PWRS":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=59
+  color: "#1d4ed8"
+
+"EI2":
+  url: https://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1800031
+
+"ICPIES":
+  url: https://www.ieee.org/
+
+"PEPSC":
+  url: https://ieeexplore.ieee.org/
+
+"IC2ECS":
+  url: https://ieeexplore.ieee.org/
+
+"ACPEE":
+  url: https://ieeexplore.ieee.org/
+
+"CUS-EPSA":
+  url: https://link.springer.com/
