@@ -49,36 +49,192 @@
     }
   ],
   "publications": [
-    { "name": "Coordinated DSO-VPP operation framework with energy and reserve integrated from shared energy storage: A mixed game method", "publisher": "Applied Energy", "releaseDate": "2025-01-01", "url": "https://doi.org/10.1016/j.apenergy.2024.125006" },
-    { "name": "Coordinated Optimization of Mixed Microgrid Multi-agent Game Considering Multi-energy Coupled Shared Energy Storage", "publisher": "Automation of Electric Power Systems", "releaseDate": "2024-01-01", "url": "https://doi.org/10.7500/AEPS20230920003" },
-    { "name": "Real-time dispatch strategy for microgrid considering source-load uncertainty: A tailored TD3 reinforcement learning approach", "publisher": "Global Energy Interconnection", "releaseDate": "2025-01-01", "url": "https://doi.org/10.1016/j.gloei.2025.10.003" },
-    { "name": "From carbon reduction to negative carbon: A comprehensive review of regional integrated energy system planning theory and methods", "publisher": "Global Energy Interconnection", "releaseDate": "2026-01-01", "url": "https://doi.org/10.1016/j.gloei.2025.11.004" },
-    { "name": "Capacity Planning of Wind-Photovoltaic Auxiliary Power Supply in Renewable Energy Bases Considering Transmission Regulation Demands", "publisher": "Automation of Electric Power Systems", "releaseDate": "2026-01-01", "url": "https://doi.org/10.7500/AEPS20250310008" },
-    { "name": "Low-carbon Optimal Dispatch Strategy for Microgrid Alliance Considering Electricity-China Certified Emission Reduction Coupling Transaction", "publisher": "Automation of Electric Power Systems", "releaseDate": "2026-01-01", "url": "https://doi.org/10.7500/AEPS20250310008" },
-    { "name": "Hybrid Game-based Optimization Scheduling Method for Microgrid-distribution Collaborative Operation Considering Microgrid Heterogeneity", "publisher": "Power System Technology", "releaseDate": "2026-01-01", "url": "https://doi.org/10.13335/j.1000-3673.pst.2026.0413" },
-    { "name": "Adaptive thermal comfort driven capacity decision-making framework for distributed energy resources in building integrated energy systems considering occupant participation degree", "publisher": "Sustainable Energy Technologies and Assessments", "releaseDate": "2025-01-01", "url": "https://doi.org/10.1016/j.seta.2025.104733" },
-    { "name": "Bi-Level Aggregation Model and Identification Method for Flexible Region of Active Distribution Networks Integrating Dynamic Equivalent Mechanism for Large-Scale Resources", "publisher": "Proceedings of the CSEE", "releaseDate": "2025-01-01", "summary": "Early access" },
-    { "name": "Bayesian Probabilistic Transient Stability Assessment for Power System with Stochastic Renewable Generations and Loads", "publisher": "2026 IEEE 2nd International Conference on Power and Integrated Energy Systems (ICPIES 2026)", "releaseDate": "2026-04-01", "summary": "Accepted for publication" },
-    { "name": "Mixed Game Optimization Scheduling of Integrated Energy Systems with Shared Energy Storage", "publisher": "2023 IEEE 7th Conference on Energy Internet and Energy System Integration (EI2 2023)", "releaseDate": "2023-12-01", "url": "https://doi.org/10.1109/EI259745.2023.10512839" },
-    { "name": "A Method for Distribution Network Topology Identification Based on Mutual Information and DNN", "publisher": "2024 2nd Power Electronics and Power System Conference (PEPSC 2024)", "releaseDate": "2024-11-01", "url": "https://doi.org/10.1109/PEPSC63375.2024.10823502" },
-    { "name": "Optimal Scheduling Strategy for Microgrid Clusters: Under the Cloud-Edge Collaborative Control Architecture", "publisher": "2023 3rd International Conference on Electrical Engineering and Control Science (IC2ECS 2023)", "releaseDate": "2023-12-01", "url": "https://doi.org/10.1109/IC2ECS60824.2023.10493658" },
-    { "name": "Multi-Level Coordinated Operation Framework of DSO-MGO Based on CPSS Mixed Games", "publisher": "2025 IEEE 9th Conference on Energy Internet and Energy System Integration (EI2 2025)", "releaseDate": "2025-12-01", "url": "https://doi.org/10.1109/EI268505.2025.11425378" },
-    { "name": "Dynamic Flexible Region Depicting Method for Active Distribution Networks Containing Massive Distributed Energy Resources", "publisher": "2025 10th Asia Conference on Power and Electrical Engineering (ACPEE 2025)", "releaseDate": "2025-04-01", "url": "https://doi.org/10.1109/ACPEE64358.2025.11040921" },
-    { "name": "Low-Carbon Optimization for Microgrids with Electricity-CCER Trading", "publisher": "2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2 2024)", "releaseDate": "2024-11-01", "url": "https://doi.org/10.1109/EI264398.2024.10991669" },
-    { "name": "Info-Gap Decision Theory Based Wind-Storage System Day-Ahead Bidding Strategy", "publisher": "Springer", "releaseDate": "2023-01-01", "url": "https://doi.org/10.1007/978-981-99-1439-5_5" },
-    { "name": "Probabilistic Transient Stability Assessment for Renewable-Integrated Power System with Correlated Parametric P-Box Uncertainties", "publisher": "IEEE Transactions on Smart Grid", "releaseDate": "2026-01-01", "summary": "Under review" },
-    { "name": "Bayesian Probabilistic Transient Stability Assessment for Renewable-Integrated Power System under Limited Measurement Data", "publisher": "IEEE Transactions on Power Systems", "releaseDate": "2026-01-01", "summary": "Under review" },
-    { "name": "Multi-Stage Stochastic Co-Planning of Stationary and Electric-Vehicle Energy Storage: A Three-Layer Benders Decomposition", "publisher": "IEEE Transactions on Power Systems", "releaseDate": "2026-01-01", "summary": "Under review" },
-    { "name": "Two-Stage Rolling Dispatch in Coordinated TSO-DSO-VPP Framework: A Hierarchical Flexible Region Mapping Driven Solution", "publisher": "Applied Energy", "releaseDate": "2026-01-01", "summary": "Under review" },
-    { "name": "A Coordinated Optimization Method for Power and Energy Across Multiple Time Scales in a Distribution Network", "publisher": "Chinese Invention Patent", "releaseDate": "2026-03-01", "summary": "Application No. CN202610250614.8, Publication No. CN122315730A. Applicant: Hangzhou Dianzi University." },
-    { "name": "A Method for Generating Extreme Scenarios Based on a Multi-Head Attention Mechanism and a Generative Adversarial Network", "publisher": "Chinese Invention Patent", "releaseDate": "2025-10-01", "summary": "Application No. CN202511466659.0, Publication No. CN121481037A. Applicant: Hangzhou Dianzi University." }
+    {
+      "name": "Coordinated DSO-VPP operation framework with energy and reserve integrated from shared energy storage: A mixed game method",
+      "publisher": "Applied Energy",
+      "releaseDate": "2025-01-01",
+      "url": "https://doi.org/10.1016/j.apenergy.2024.125006"
+    },
+    {
+      "name": "Coordinated Optimization of Mixed Microgrid Multi-agent Game Considering Multi-energy Coupled Shared Energy Storage",
+      "publisher": "Automation of Electric Power Systems",
+      "releaseDate": "2024-01-01",
+      "url": "https://doi.org/10.7500/AEPS20230920003"
+    },
+    {
+      "name": "Real-time dispatch strategy for microgrid considering source-load uncertainty: A tailored TD3 reinforcement learning approach",
+      "publisher": "Global Energy Interconnection",
+      "releaseDate": "2025-01-01",
+      "url": "https://doi.org/10.1016/j.gloei.2025.10.003"
+    },
+    {
+      "name": "From carbon reduction to negative carbon: A comprehensive review of regional integrated energy system planning theory and methods",
+      "publisher": "Global Energy Interconnection",
+      "releaseDate": "2026-01-01",
+      "url": "https://doi.org/10.1016/j.gloei.2025.11.004"
+    },
+    {
+      "name": "Capacity Planning of Wind-Photovoltaic Auxiliary Power Supply in Renewable Energy Bases Considering Transmission Regulation Demands",
+      "publisher": "Automation of Electric Power Systems",
+      "releaseDate": "2026-01-01",
+      "url": "https://doi.org/10.7500/AEPS20250310008"
+    },
+    {
+      "name": "Low-carbon Optimal Dispatch Strategy for Microgrid Alliance Considering Electricity-China Certified Emission Reduction Coupling Transaction",
+      "publisher": "Automation of Electric Power Systems",
+      "releaseDate": "2026-01-01",
+      "url": "https://doi.org/10.7500/AEPS20250310008"
+    },
+    {
+      "name": "Hybrid Game-based Optimization Scheduling Method for Microgrid-distribution Collaborative Operation Considering Microgrid Heterogeneity",
+      "publisher": "Power System Technology",
+      "releaseDate": "2026-01-01",
+      "url": "https://doi.org/10.13335/j.1000-3673.pst.2026.0413"
+    },
+    {
+      "name": "Adaptive thermal comfort driven capacity decision-making framework for distributed energy resources in building integrated energy systems considering occupant participation degree",
+      "publisher": "Sustainable Energy Technologies and Assessments",
+      "releaseDate": "2025-01-01",
+      "url": "https://doi.org/10.1016/j.seta.2025.104733"
+    },
+    {
+      "name": "Bi-Level Aggregation Model and Identification Method for Flexible Region of Active Distribution Networks Integrating Dynamic Equivalent Mechanism for Large-Scale Resources",
+      "publisher": "Proceedings of the CSEE",
+      "releaseDate": "2025-01-01",
+      "summary": "Early access"
+    },
+    {
+      "name": "Bayesian Probabilistic Transient Stability Assessment for Power System with Stochastic Renewable Generations and Loads",
+      "publisher": "2026 IEEE 2nd International Conference on Power and Integrated Energy Systems (ICPIES 2026)",
+      "releaseDate": "2026-04-01",
+      "summary": "Accepted for publication"
+    },
+    {
+      "name": "Mixed Game Optimization Scheduling of Integrated Energy Systems with Shared Energy Storage",
+      "publisher": "2023 IEEE 7th Conference on Energy Internet and Energy System Integration (EI2 2023)",
+      "releaseDate": "2023-12-01",
+      "url": "https://doi.org/10.1109/EI259745.2023.10512839"
+    },
+    {
+      "name": "A Method for Distribution Network Topology Identification Based on Mutual Information and DNN",
+      "publisher": "2024 2nd Power Electronics and Power System Conference (PEPSC 2024)",
+      "releaseDate": "2024-11-01",
+      "url": "https://doi.org/10.1109/PEPSC63375.2024.10823502"
+    },
+    {
+      "name": "Optimal Scheduling Strategy for Microgrid Clusters: Under the Cloud-Edge Collaborative Control Architecture",
+      "publisher": "2023 3rd International Conference on Electrical Engineering and Control Science (IC2ECS 2023)",
+      "releaseDate": "2023-12-01",
+      "url": "https://doi.org/10.1109/IC2ECS60824.2023.10493658"
+    },
+    {
+      "name": "Multi-Level Coordinated Operation Framework of DSO-MGO Based on CPSS Mixed Games",
+      "publisher": "2025 IEEE 9th Conference on Energy Internet and Energy System Integration (EI2 2025)",
+      "releaseDate": "2025-12-01",
+      "url": "https://doi.org/10.1109/EI268505.2025.11425378"
+    },
+    {
+      "name": "Dynamic Flexible Region Depicting Method for Active Distribution Networks Containing Massive Distributed Energy Resources",
+      "publisher": "2025 10th Asia Conference on Power and Electrical Engineering (ACPEE 2025)",
+      "releaseDate": "2025-04-01",
+      "url": "https://doi.org/10.1109/ACPEE64358.2025.11040921"
+    },
+    {
+      "name": "Low-Carbon Optimization for Microgrids with Electricity-CCER Trading",
+      "publisher": "2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2 2024)",
+      "releaseDate": "2024-11-01",
+      "url": "https://doi.org/10.1109/EI264398.2024.10991669"
+    },
+    {
+      "name": "Info-Gap Decision Theory Based Wind-Storage System Day-Ahead Bidding Strategy",
+      "publisher": "Springer",
+      "releaseDate": "2023-01-01",
+      "url": "https://doi.org/10.1007/978-981-99-1439-5_5"
+    },
+    {
+      "name": "Probabilistic Transient Stability Assessment for Renewable-Integrated Power System with Correlated Parametric P-Box Uncertainties",
+      "publisher": "IEEE Transactions on Smart Grid",
+      "releaseDate": "2026-01-01",
+      "summary": "Under review"
+    },
+    {
+      "name": "Bayesian Probabilistic Transient Stability Assessment for Renewable-Integrated Power System under Limited Measurement Data",
+      "publisher": "IEEE Transactions on Power Systems",
+      "releaseDate": "2026-01-01",
+      "summary": "Under review"
+    },
+    {
+      "name": "Multi-Stage Stochastic Co-Planning of Stationary and Electric-Vehicle Energy Storage: A Three-Layer Benders Decomposition",
+      "publisher": "IEEE Transactions on Power Systems",
+      "releaseDate": "2026-01-01",
+      "summary": "Under review"
+    },
+    {
+      "name": "Two-Stage Rolling Dispatch in Coordinated TSO-DSO-VPP Framework: A Hierarchical Flexible Region Mapping Driven Solution",
+      "publisher": "Applied Energy",
+      "releaseDate": "2026-01-01",
+      "summary": "Under review"
+    },
+    {
+      "name": "A Coordinated Optimization Method for Power and Energy Across Multiple Time Scales in a Distribution Network",
+      "publisher": "Chinese Invention Patent",
+      "releaseDate": "2026-03-01",
+      "summary": "Application No. CN202610250614.8, Publication No. CN122315730A. Applicant: Hangzhou Dianzi University."
+    },
+    {
+      "name": "A Method for Generating Extreme Scenarios Based on a Multi-Head Attention Mechanism and a Generative Adversarial Network",
+      "publisher": "Chinese Invention Patent",
+      "releaseDate": "2025-10-01",
+      "summary": "Application No. CN202511466659.0, Publication No. CN121481037A. Applicant: Hangzhou Dianzi University."
+    }
   ],
   "projects": [
-    { "name": "Optimization Theory and Key Technologies for Power Balance in New Power System Based on Characterization of Output Prediction Uncertainty of Renewable Energy Dynamic Aggregations", "summary": "Key Researcher. National Natural Science Foundation of China, Grant U25B20191.", "startDate": "2026-01-01", "endDate": "2029-12-01" },
-    { "name": "Fundamental Theory and Technology of Autonomically Coordinated Regional Energy Internet Planning and Operation Based on Generalized Carbon Emission Trajectory", "summary": "Key Researcher. National Natural Science Foundation of China, Grant U2166211.", "startDate": "2022-01-01", "endDate": "2025-12-01", "highlights": ["Investigated uncertainty-aware planning and operation of regional energy internet systems under carbon-neutrality targets.", "Conducted research on stochastic production simulation, energy-carbon coupling, and coordinated operation of shared energy storage."] },
-    { "name": "Grey-Box Perception and Intelligent Control for Low-Voltage Distribution Networks with Multi-Source Uncertainty", "summary": "Project Leader. Science and Technology Project of Zhejiang Province, Grant SGTYHT/23-JS-003.", "startDate": "2025-09-01", "endDate": "2026-12-01", "highlights": ["Investigated multi-source uncertainty quantification and correlation modeling for low-voltage distribution networks.", "Developed data-driven state inference and optimization-based regulation strategies under uncertain operating conditions."] },
-    { "name": "Coordinated Control Technologies for County-Level Distribution Grids with Large-Scale Integration of Energy-Autonomous Microgrids", "summary": "Project Leader. State Grid Corporation of China, Grant 5400-202319829A-4-1-KJ.", "startDate": "2023-12-01", "endDate": "2025-12-01", "highlights": ["Investigated topology identification, uncertainty-aware microgrid scheduling, and coordinated operation of distribution networks and microgrid clusters.", "Developed optimization and learning-based methods for improving operational economy and renewable energy accommodation."] },
-    { "name": "Data-Driven Autonomous Coordination for the Optimal Operation of Large-Scale DER Clusters in Active Distribution Networks", "summary": "Key Researcher. Science and Technology Project of Zhejiang Province, Grant SGTYHT/23-JS-004.", "startDate": "2023-11-01", "endDate": "2024-06-01", "highlights": ["Investigated data-driven aggregation and coordinated optimization of large-scale distributed energy resource clusters.", "Developed surrogate and learning-based approaches for computationally efficient scheduling and real-time control."] }
+    {
+      "name": "Optimization Theory and Key Technologies for Power Balance in New Power System Based on Characterization of Output Prediction Uncertainty of Renewable Energy Dynamic Aggregations",
+      "summary": "Key Researcher. National Natural Science Foundation of China, Grant U25B20191.",
+      "startDate": "2026-01-01",
+      "endDate": "2029-12-01"
+    },
+    {
+      "name": "Fundamental Theory and Technology of Autonomically Coordinated Regional Energy Internet Planning and Operation Based on Generalized Carbon Emission Trajectory",
+      "summary": "Key Researcher. National Natural Science Foundation of China, Grant U2166211.",
+      "startDate": "2022-01-01",
+      "endDate": "2025-12-01",
+      "highlights": [
+        "Investigated uncertainty-aware planning and operation of regional energy internet systems under carbon-neutrality targets.",
+        "Conducted research on stochastic production simulation, energy-carbon coupling, and coordinated operation of shared energy storage."
+      ]
+    },
+    {
+      "name": "Grey-Box Perception and Intelligent Control for Low-Voltage Distribution Networks with Multi-Source Uncertainty",
+      "summary": "Project Leader. Science and Technology Project of Zhejiang Province, Grant SGTYHT/23-JS-003.",
+      "startDate": "2025-09-01",
+      "endDate": "2026-12-01",
+      "highlights": [
+        "Investigated multi-source uncertainty quantification and correlation modeling for low-voltage distribution networks.",
+        "Developed data-driven state inference and optimization-based regulation strategies under uncertain operating conditions."
+      ]
+    },
+    {
+      "name": "Coordinated Control Technologies for County-Level Distribution Grids with Large-Scale Integration of Energy-Autonomous Microgrids",
+      "summary": "Project Leader. State Grid Corporation of China, Grant 5400-202319829A-4-1-KJ.",
+      "startDate": "2023-12-01",
+      "endDate": "2025-12-01",
+      "highlights": [
+        "Investigated topology identification, uncertainty-aware microgrid scheduling, and coordinated operation of distribution networks and microgrid clusters.",
+        "Developed optimization and learning-based methods for improving operational economy and renewable energy accommodation."
+      ]
+    },
+    {
+      "name": "Data-Driven Autonomous Coordination for the Optimal Operation of Large-Scale DER Clusters in Active Distribution Networks",
+      "summary": "Key Researcher. Science and Technology Project of Zhejiang Province, Grant SGTYHT/23-JS-004.",
+      "startDate": "2023-11-01",
+      "endDate": "2024-06-01",
+      "highlights": [
+        "Investigated data-driven aggregation and coordinated optimization of large-scale distributed energy resource clusters.",
+        "Developed surrogate and learning-based approaches for computationally efficient scheduling and real-time control."
+      ]
+    }
   ],
   "skills": [
     { "name": "Programming Languages", "keywords": ["Python", "MATLAB"] },
@@ -90,19 +246,31 @@
     { "language": "Chinese", "fluency": "Native" },
     { "language": "English", "fluency": "CET 6, CET 4" }
   ],
-  "interests": [
-    { "name": "Clarinet" },
-    { "name": "Basketball" },
-    { "name": "Football" }
-  ],
+  "interests": [{ "name": "Clarinet" }, { "name": "Basketball" }, { "name": "Football" }],
   "awards": [
-    { "title": "Best Poster Presentation Award", "awarder": "2026 IEEE 2nd International Conference on Power and Integrated Energy Systems (ICPIES)", "date": "2026-04-01" },
-    { "title": "The Third Prize of Excellent Paper of Automation of Electric Power Systems in 2024", "awarder": "Editorial Office of Automation of Electric Power Systems", "date": "2026-01-01" },
+    {
+      "title": "Best Poster Presentation Award",
+      "awarder": "2026 IEEE 2nd International Conference on Power and Integrated Energy Systems (ICPIES)",
+      "date": "2026-04-01"
+    },
+    {
+      "title": "The Third Prize of Excellent Paper of Automation of Electric Power Systems in 2024",
+      "awarder": "Editorial Office of Automation of Electric Power Systems",
+      "date": "2026-01-01"
+    },
     { "title": "Top 10 Graduate Students Award", "awarder": "Hangzhou Dianzi University", "date": "2025-05-01" },
-    { "title": "Qiu Junping Innovation Scholarship for Graduate Education - Second Prize", "awarder": "Hangzhou Dianzi University", "date": "2025-02-01" },
+    {
+      "title": "Qiu Junping Innovation Scholarship for Graduate Education - Second Prize",
+      "awarder": "Hangzhou Dianzi University",
+      "date": "2025-02-01"
+    },
     { "title": "Scholarship for the Consecutive Master-Ph.D. Program", "awarder": "Hangzhou Dianzi University", "date": "2024-11-01" },
     { "title": "Top Ten Students", "awarder": "School of Automation, Hangzhou Dianzi University", "date": "2023-11-01" },
     { "title": "Graduate Scholarship - First Prize", "awarder": "Hangzhou Dianzi University", "date": "2023-11-01" },
-    { "title": "Best Paper Award - Third Prize", "awarder": "Annual Conference on Power System and Automation in Chinese Universities", "date": "2022-11-01" }
+    {
+      "title": "Best Paper Award - Third Prize",
+      "awarder": "Annual Conference on Power System and Automation in Chinese Universities",
+      "date": "2022-11-01"
+    }
   ]
 }

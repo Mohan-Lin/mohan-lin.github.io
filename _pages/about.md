@@ -29,11 +29,11 @@ profile:
       </a>
     </div>
 
-selected_papers: false  # 开启后会展示 .bib 中标记 selected={true} 的代表作
-social: false           # 你已用上面的 more_info 手动放了图标，这里保持关闭，避免重复显示一遍
+selected_papers: false # 开启后会展示 .bib 中标记 selected={true} 的代表作
+social: false # 你已用上面的 more_info 手动放了图标，这里保持关闭，避免重复显示一遍
 
 announcements:
-  enabled: true         # 交给主题自带机制渲染 news，不再手动 include
+  enabled: true # 交给主题自带机制渲染 news，不再手动 include
   scrollable: true
   limit: 10
 
