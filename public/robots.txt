@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mohan-lin.github.io/sitemap.xml
