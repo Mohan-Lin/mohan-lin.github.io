@@ -1,0 +1,4 @@
+type = "text"
+title = "CV"
+description = "Mohan Lin · Control Science and Engineering"
+source = "cv.md"

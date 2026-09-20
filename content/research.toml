@@ -1,0 +1,28 @@
+type = "card"
+title = "Research"
+description = "My research connects uncertainty quantification, probabilistic transient stability assessment, and the optimization of renewable-integrated power systems. The projects below cover distribution networks, microgrids, shared energy storage, and regional energy systems."
+
+[[items]]
+title = "Power Balance Optimization of New Power Systems"
+subtitle = "Key Researcher · NSFC Grant U25B20191 (Jan. 2026 - Dec. 2029)"
+content = "Optimization theory and key technologies for power balance in new power systems, based on characterization of output prediction uncertainty of renewable energy dynamic aggregations."
+
+[[items]]
+title = "Autonomically Coordinated Regional Energy Internet Planning"
+subtitle = "Key Researcher · NSFC Grant U2166211 (Jan. 2022 - Dec. 2025)"
+content = "Fundamental theory and technology of autonomically coordinated regional energy internet planning and operation based on generalized carbon emission trajectory.\n\n- Investigated uncertainty-aware planning and operation of regional energy internet systems under carbon-neutrality targets.\n- Conducted research on stochastic production simulation, energy-carbon coupling, and coordinated operation of shared energy storage."
+
+[[items]]
+title = "Grey-Box Perception and Intelligent Control for Low-Voltage Distribution Networks"
+subtitle = "Project Leader · Zhejiang S&T Project SGTYHT/23-JS-003 (Sept. 2025 - Dec. 2026)"
+content = "Grey-box perception and intelligent control for low-voltage distribution networks with multi-source uncertainty.\n\n- Investigated multi-source uncertainty quantification and correlation modeling for low-voltage distribution networks.\n- Developed data-driven state inference and optimization-based regulation strategies under uncertain operating conditions."
+
+[[items]]
+title = "Coordinated Control of County-Level Distribution Grids with Energy-Autonomous Microgrids"
+subtitle = "Project Leader · State Grid Grant 5400-202319829A-4-1-KJ (Dec. 2023 - Dec. 2025)"
+content = "Coordinated control technologies for county-level distribution grids with large-scale integration of energy-autonomous microgrids.\n\n- Investigated topology identification, uncertainty-aware microgrid scheduling, and coordinated operation of distribution networks and microgrid clusters.\n- Developed optimization and learning-based methods for improving operational economy and renewable energy accommodation."
+
+[[items]]
+title = "Autonomous Coordination of Large-Scale DER Clusters"
+subtitle = "Key Researcher · Zhejiang S&T Project SGTYHT/23-JS-004 (Nov. 2023 - Jun. 2024)"
+content = "Data-driven autonomous coordination for the optimal operation of large-scale distributed energy resource (DER) clusters in active distribution networks.\n\n- Investigated data-driven aggregation and coordinated optimization of large-scale DER clusters.\n- Developed surrogate and learning-based approaches for computationally efficient scheduling and real-time control."
