@@ -2,13 +2,13 @@
 title = "Mohan Lin"
 description = "Mohan Lin — Ph.D. candidate in Control Science and Engineering. Research on uncertainty quantification, probabilistic transient stability, and power system optimization."
 favicon = "/favicon.svg"
-last_updated = "September 17, 2026"
+last_updated = "September 21, 2026"
 
 [author]
 name = "Mohan Lin"
 title = "Ph.D. Candidate"
 institution = "Hangzhou Dianzi University"
-avatar = "/mohan-lin.JPG"
+avatar = "/mohan_lin.jpg"
 
 [social]
 email = "mohan_lin@hdu.edu.cn"

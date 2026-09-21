@@ -1,3 +1,4 @@
+
 import { getConfig } from '@/lib/config';
 import { getMarkdownContent, getBibtexContent, getTomlContent, getPageConfig } from '@/lib/content';
 import { parseBibTeX } from '@/lib/bibtexParser';
@@ -13,6 +14,7 @@ interface SectionConfig {
   source?: string;
   filter?: string;
   limit?: number;
+  order?: string[];
   content?: string;
   publications?: Publication[];
   items?: NewsItem[];
@@ -43,9 +45,18 @@ function processSections(sections: SectionConfig[], locale?: string): SectionCon
         const filteredPubs = section.filter === 'selected'
           ? allPubs.filter((p) => p.selected)
           : allPubs;
+        const orderedPubs = section.order
+          ? [...filteredPubs].sort((a, b) => {
+              const rank = (id: string) => {
+                const index = section.order!.indexOf(id);
+                return index < 0 ? Number.MAX_SAFE_INTEGER : index;
+              };
+              return rank(a.id) - rank(b.id);
+            })
+          : filteredPubs;
         return {
           ...section,
-          publications: filteredPubs.slice(0, section.limit || 5),
+          publications: orderedPubs.slice(0, section.limit || 5),
         };
       }
       case 'list': {

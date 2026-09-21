@@ -2,7 +2,7 @@ type = "about"
 title = "About"
 
 [profile]
-research_interests = ["Uncertainty Quantification", "Probabilistic Transient Stability", "Power System Optimization", "Renewable Energy Integration"]
+research_interests = ["Uncertainty Quantification", "Probabilistic Transient Stability Assessment", "Power System Optimization"]
 
 [[sections]]
 id = "about"
@@ -15,6 +15,7 @@ id = "featured_publications"
 type = "publications"
 title = "Selected Publications"
 filter = "selected"
+order = ["lin2026icpies_bayesian", "lin2025dsovpp", "lin2024mixed_microgrid"]
 limit = 3
 
 [[sections]]
