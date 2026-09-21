@@ -14,6 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const openGraphLocale = runtimeI18n.defaultLocale === 'zh' ? 'zh_CN' : 'en_US';
 
   return {
+    metadataBase: new URL(config.site.url),
     title: {
       default: config.site.title,
       template: `%s | ${config.site.title}`,
@@ -31,7 +32,8 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: openGraphLocale,
       title: config.site.title,
       description: config.site.description,
-      siteName: `${config.author.name}'s Academic Website`,
+      siteName: config.site.title,
+      images: [{ url: config.author.avatar, alt: config.author.name }],
     },
   };
 }

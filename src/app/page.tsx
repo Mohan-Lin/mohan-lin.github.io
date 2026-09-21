@@ -6,6 +6,11 @@ import HomePageClient, { type HomePageLocaleData } from '@/components/home/HomeP
 import { Publication } from '@/types/publication';
 import { BasePageConfig, PublicationPageConfig, TextPageConfig, CardPageConfig } from '@/types/page';
 import { getRuntimeI18nConfig } from '@/lib/i18n/config';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 interface SectionConfig {
   id: string;
@@ -163,5 +168,41 @@ export default function Home() {
     dataByLocale[runtimeI18n.defaultLocale] = loadPageDataForLocale(undefined);
   }
 
-  return <HomePageClient dataByLocale={dataByLocale} defaultLocale={runtimeI18n.defaultLocale} />;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${baseConfig.site.url}#website`,
+        name: baseConfig.site.title,
+        url: baseConfig.site.url,
+      },
+      {
+        '@type': 'Person',
+        '@id': `${baseConfig.site.url}#person`,
+        name: baseConfig.author.name,
+        url: baseConfig.site.url,
+        image: new URL(baseConfig.author.avatar, baseConfig.site.url).href,
+        jobTitle: baseConfig.author.title,
+        affiliation: { '@type': 'CollegeOrUniversity', name: baseConfig.author.institution },
+        sameAs: [
+          baseConfig.social.google_scholar,
+          baseConfig.social.orcid,
+          baseConfig.social.github,
+          baseConfig.social.linkedin,
+          baseConfig.social.researchgate,
+        ].filter((url): url is string => typeof url === 'string' && url.startsWith('https://')),
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
+      />
+      <HomePageClient dataByLocale={dataByLocale} defaultLocale={runtimeI18n.defaultLocale} />
+    </>
+  );
 }

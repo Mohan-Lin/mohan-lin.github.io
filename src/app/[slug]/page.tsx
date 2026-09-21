@@ -69,6 +69,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: pageConfig.title,
+    alternates: { canonical: `/${slug}/` },
     description: pageConfig.description,
   };
 }
