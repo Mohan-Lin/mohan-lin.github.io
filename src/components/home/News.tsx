@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
 import { useMessages } from '@/lib/i18n/useMessages';
 
 export interface NewsItem {
@@ -16,6 +17,7 @@ interface NewsProps {
 export default function News({ items, title }: NewsProps) {
     const messages = useMessages();
     const resolvedTitle = title || messages.home.news;
+    const sortedItems = [...items].sort((a, b) => b.date.localeCompare(a.date));
 
     return (
         <motion.section
@@ -25,10 +27,20 @@ export default function News({ items, title }: NewsProps) {
         >
             <h2 className="text-2xl font-serif font-bold text-primary mb-4">{resolvedTitle}</h2>
             <div className="space-y-3">
-                {items.map((item, index) => (
+                {sortedItems.map((item, index) => (
                     <div key={index} className="flex items-start space-x-3">
                         <span className="text-xs text-neutral-500 mt-1 w-20 flex-shrink-0 whitespace-nowrap">{item.date}</span>
-                        <p className="text-sm text-neutral-700">{item.content}</p>
+                        <div className="min-w-0 text-sm text-neutral-700">
+                            <ReactMarkdown components={{
+                                a: ({ href, children }) => (
+                                    <a href={href} target="_blank" rel="noopener noreferrer" className="text-accent font-medium hover:underline">
+                                        {children}
+                                    </a>
+                                ),
+                            }}>
+                                {item.content}
+                            </ReactMarkdown>
+                        </div>
                     </div>
                 ))}
             </div>

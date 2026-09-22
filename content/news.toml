@@ -1,3 +1,23 @@
 [[news]]
 date = "2026-07-21"
 content = "My academic website is now online!"
+
+[[news]]
+date = "2026-04-26"
+content = 'Our paper, "Bayesian Probabilistic Transient Stability Assessment for Power System with Stochastic Renewable Generations and Loads," received the Best Poster Presentation Award at the 2026 IEEE 2nd International Conference on Power and Integrated Energy Systems!'
+
+[[news]]
+date = "2026-02-27"
+content = "Touched down in Hong Kong!"
+
+[[news]]
+date = "2026-01-16"
+content = 'Our paper, "Coordinated Optimization of Mixed Microgrid Multi-agent Game Considering Multi-energy Coupled Shared Energy Storage" (No. 4, 2024), received the Third Prize in the 2024 Excellent Paper Awards of Automation of Electric Power Systems!'
+
+[[news]]
+date = "2025-12-15"
+content = "Deeply grateful and honored to be advised by [Prof. Bendong Tan](https://tbendong.github.io/) as a Visiting Ph.D. Student in the Power Systems Intelligence & Analytics Lab, [Department of Electrical and Electronic Engineering](https://www.polyu.edu.hk/eee/), [The Hong Kong Polytechnic University](https://www.polyu.edu.hk/)."
+
+[[news]]
+date = "2022-09-01"
+content = "Started as a Ph.D. student in Control Science and Engineering at the School of Automation, Hangzhou Dianzi University, advised by Prof. Pingliang Zeng."
