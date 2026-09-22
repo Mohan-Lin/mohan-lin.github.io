@@ -175,6 +175,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer
+              initialYear={new Date().getFullYear()}
               lastUpdated={config.site.last_updated}
               lastUpdatedByLocale={lastUpdatedByLocale}
               defaultLocale={runtimeI18n.defaultLocale}

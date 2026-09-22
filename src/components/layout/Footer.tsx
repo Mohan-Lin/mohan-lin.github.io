@@ -1,15 +1,24 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useLocaleStore } from '@/lib/stores/localeStore';
 import { useMessages } from '@/lib/i18n/useMessages';
 
 interface FooterProps {
+  initialYear: number;
   lastUpdated?: string;
   lastUpdatedByLocale?: Record<string, string | undefined>;
   defaultLocale?: string;
 }
 
-export default function Footer({ lastUpdated, lastUpdatedByLocale, defaultLocale = 'en' }: FooterProps) {
+export default function Footer({ initialYear, lastUpdated, lastUpdatedByLocale, defaultLocale = 'en' }: FooterProps) {
+  const [year, setYear] = useState(initialYear);
+  useEffect(() => {
+    const updateYear = () => setYear(new Date().getFullYear());
+    updateYear();
+    const timer = window.setInterval(updateYear, 60_000);
+    return () => window.clearInterval(timer);
+  }, []);
   const locale = useLocaleStore((state) => state.locale);
   const messages = useMessages();
 
@@ -27,10 +36,7 @@ export default function Footer({ lastUpdated, lastUpdatedByLocale, defaultLocale
             {messages.footer.lastUpdated}: {resolvedLastUpdated}
           </p>
           <p className="text-xs text-neutral-500 flex items-center">
-            <a href="https://github.com/xyjoey/PRISM" target="_blank" rel="noopener noreferrer">
-              {messages.footer.builtWithPrism}
-            </a>
-            <span className="ml-2">🚀</span>
+            Copyright {year} Mohan Lin.
           </p>
         </div>
       </div>

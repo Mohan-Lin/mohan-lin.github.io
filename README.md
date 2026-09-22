@@ -13,10 +13,11 @@ pnpm dev
 
 ## Edit content
 
-- `content/config.toml`: identity, contact links, five navigation items.
+- `content/config.toml`: identity, contact links, six navigation items.
 - `content/bio.md` and `content/about.toml`: introduction and homepage sections.
 - `content/publications.bib`: all publications, manuscripts, patent applications, selected papers.
-- `content/research.toml`: five research projects.
+- `content/projects.toml`: five research projects.
+- `content/research.toml` and `content/research.md`: Research page, currently empty.
 - `content/cv.md`: education, projects, awards, skills, service and interests.
 - `content/services.md`: journal reviewing.
 - `public/mohan-lin.JPG`: portrait.

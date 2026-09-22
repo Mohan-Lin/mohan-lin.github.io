@@ -3,7 +3,7 @@ title = "Mohan Lin"
 url = "https://mohan-lin.github.io/"
 description = "Mohan Lin — Ph.D. candidate in Control Science and Engineering. Research on uncertainty quantification, probabilistic transient stability, and power system optimization."
 favicon = "/favicon.svg"
-last_updated = "September 21, 2026"
+last_updated = "September 22, 2026"
 
 [author]
 name = "Mohan Lin"
@@ -49,6 +49,12 @@ title = "Research"
 type = "page"
 target = "research"
 href = "/research/"
+
+[[navigation]]
+title = "Projects"
+type = "page"
+target = "projects"
+href = "/projects/"
 
 [[navigation]]
 title = "CV"
