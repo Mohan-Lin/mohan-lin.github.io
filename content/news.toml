@@ -4,7 +4,7 @@ content = "My academic website is now online!"
 
 [[news]]
 date = "2026-04-26"
-content = 'Our paper, "Bayesian Probabilistic Transient Stability Assessment for Power System with Stochastic Renewable Generations and Loads," received the Best Poster Presentation Award at the 2026 IEEE 2nd International Conference on Power and Integrated Energy Systems!'
+content = 'Our paper, "Bayesian Probabilistic Transient Stability Assessment for Power System with Stochastic Renewable Generations and Loads", received the Best Poster Presentation Award at the 2026 IEEE 2nd International Conference on Power and Integrated Energy Systems!'
 
 [[news]]
 date = "2026-02-27"
