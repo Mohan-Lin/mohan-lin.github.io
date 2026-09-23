@@ -17,6 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(config.site.url),
     verification: {
       google: 'v9yDAg4t1qoMkQoiN5D8-ihaumgmJL5-axOKMEUvkpM',
+      other: { 'msvalidate.01': '05B3088678518778F129BE33DF85CEBC' },
     },
     title: {
       default: config.site.title,
