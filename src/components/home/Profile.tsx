@@ -324,12 +324,12 @@ export default function Profile({ author, social, features, researchInterests }:
             )}
 
             {/* Keep the third-party widget isolated from React and site styles. */}
-            <div className="mb-6">
+            <div className="relative mb-6 h-0 w-full" style={{ paddingBottom: 'calc(49.02% + 64px)' }}>
                 <iframe
                     src="/visitor-map.html"
                     title="Visitor map — MapMyVisitors"
                     loading="lazy"
-                    className="mx-auto block h-[180px] w-full max-w-[240px] border-0"
+                    className="absolute inset-0 block h-full w-full border-0"
                 />
             </div>
 
