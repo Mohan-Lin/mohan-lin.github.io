@@ -105,11 +105,19 @@ function buildLocalizedConfigMaps(
   const siteTitleByLocale: Record<string, string> = {};
   const lastUpdatedByLocale: Record<string, string | undefined> = {};
 
+  // Static export freezes this date until the next build (Hong Kong time).
+  const buildDate = new Date();
+
   for (const locale of locales) {
     const localizedConfig = getConfig(locale);
     navigationByLocale[locale] = localizedConfig.navigation;
     siteTitleByLocale[locale] = localizedConfig.site.title;
-    lastUpdatedByLocale[locale] = localizedConfig.site.last_updated;
+    lastUpdatedByLocale[locale] = buildDate.toLocaleDateString(locale, {
+      timeZone: 'Asia/Hong_Kong',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
   }
 
   return {
@@ -180,7 +188,7 @@ export default function RootLayout({
             </main>
             <Footer
               initialYear={new Date().getFullYear()}
-              lastUpdated={config.site.last_updated}
+              lastUpdated={lastUpdatedByLocale[runtimeI18n.defaultLocale]!}
               lastUpdatedByLocale={lastUpdatedByLocale}
               defaultLocale={runtimeI18n.defaultLocale}
             />
