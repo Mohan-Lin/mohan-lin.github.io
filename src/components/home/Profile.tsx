@@ -323,6 +323,16 @@ export default function Profile({ author, social, features, researchInterests }:
                 </div>
             )}
 
+            {/* Keep the third-party widget isolated from React and site styles. */}
+            <div className="mb-6">
+                <iframe
+                    src="/visitor-globe.html"
+                    title="Visitor map — MapMyVisitors"
+                    loading="lazy"
+                    className="mx-auto block h-[270px] w-full max-w-[240px] border-0"
+                />
+            </div>
+
             {/* Like Button */}
             {features.enable_likes && (
                 <div className="flex justify-center">
