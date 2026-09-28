@@ -326,10 +326,10 @@ export default function Profile({ author, social, features, researchInterests }:
             {/* Keep the third-party widget isolated from React and site styles. */}
             <div className="mb-6">
                 <iframe
-                    src="/visitor-globe.html"
+                    src="/visitor-map.html"
                     title="Visitor map — MapMyVisitors"
                     loading="lazy"
-                    className="mx-auto block h-[270px] w-full max-w-[240px] border-0"
+                    className="mx-auto block h-[180px] w-full max-w-[240px] border-0"
                 />
             </div>
 
