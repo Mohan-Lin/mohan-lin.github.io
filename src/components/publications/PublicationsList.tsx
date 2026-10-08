@@ -23,6 +23,12 @@ interface PublicationsListProps {
     embedded?: boolean;
 }
 
+function publicationTypeLabel(type: Publication['type']): string {
+    if (type === 'manuscript') return 'In submission';
+    if (type === 'patent') return 'Patent application';
+    return type.replace(/-/g, ' ').replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
 export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
     const messages = useMessages();
     const [searchQuery, setSearchQuery] = useState('');
@@ -168,13 +174,13 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 key={type}
                                                 onClick={() => setSelectedType(type)}
                                                 className={cn(
-                                                    "px-3 py-1 text-xs rounded-full capitalize transition-colors",
+                                                    "px-3 py-1 text-xs rounded-full transition-colors",
                                                     selectedType === type
                                                         ? "bg-accent text-white"
                                                         : "bg-white dark:bg-neutral-800 text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700"
                                                 )}
                                             >
-                                                {type.replace('-', ' ')}
+                                                {publicationTypeLabel(type)}
                                             </button>
                                         ))}
                                     </div>
@@ -217,7 +223,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                 )}
                                 <div className="flex-grow">
                                     <div className="flex flex-wrap gap-2 mb-3 text-xs font-medium">
-                                        <span className="rounded-full bg-neutral-100 text-neutral-700 px-3 py-1 capitalize">{pub.type === 'manuscript' ? 'Manuscript' : pub.type === 'patent' ? 'Patent application' : pub.type}</span>
+                                        <span className="rounded-full bg-neutral-100 text-neutral-700 px-3 py-1">{publicationTypeLabel(pub.type)}</span>
                                         {pub.status === 'under-review' && <span className="rounded-full bg-accent/10 text-accent-dark px-3 py-1">Under review</span>}
                                         {pub.status === 'accepted' && <span className="rounded-full bg-accent/10 text-accent-dark px-3 py-1">Accepted</span>}
                                     </div>
