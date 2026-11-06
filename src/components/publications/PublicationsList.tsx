@@ -36,14 +36,14 @@ export default function PublicationsList({ config, publications, embedded = fals
                             <h2 id={section.id} className="text-2xl font-serif text-primary border-b border-neutral-200 pb-3 mb-5 scroll-mt-28">
                                 {section.title}
                             </h2>
-                            <ol className="list-none space-y-4" role="list">
+                            <ol className="list-none space-y-6" role="list">
                                 {entries.map((pub, index) => {
                                     const paperUrl = pub.doi ? `https://doi.org/${pub.doi}` : pub.url;
                                     const venue = pub.journal || pub.conference;
                                     const number = `${section.prefix}${index + 1}`;
 
                                     return (
-                                        <li key={pub.id} id={pub.id} className="publication-card grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-2 scroll-mt-28 bg-neutral-50 dark:bg-neutral-800 p-4 sm:p-5 rounded-lg border border-neutral-200 dark:border-[rgba(148,163,184,0.24)] shadow-sm transition-[transform,scale,box-shadow] duration-200 ease-out hover:shadow-lg focus-within:shadow-lg motion-safe:hover:scale-[1.02] motion-reduce:transition-none">
+                                        <li key={pub.id} id={pub.id} className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-2 scroll-mt-28">
                                             <span className="font-semibold text-primary leading-8 tabular-nums">[{number}]</span>
                                             <div className="min-w-0">
                                                 <p className="publication-citation text-base leading-8 text-neutral-700">
@@ -71,6 +71,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                     {pub.pages && <>{pub.pages.includes('-') ? 'pp.' : 'Art. no.'} {pub.pages.replaceAll('--', '–')}, </>}
                                                     {pub.year}.
                                                     {pub.description && <> <span>({pub.description.replace(/[.]$/, '')})</span></>}
+                                                    {pub.awards?.map(award => <span key={award} className="text-red-600 dark:text-red-400"> ({award})</span>)}
                                                 </p>
                                             </div>
                                         </li>

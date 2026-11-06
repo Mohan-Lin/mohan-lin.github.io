@@ -65,6 +65,9 @@ export default function SelectedPublications({ publications, title, enableOnePag
                                 {pub.description}
                             </p>
                         )}
+                        {pub.awards?.map(award => (
+                            <p key={award} className="text-sm text-red-600 dark:text-red-400">({award})</p>
+                        ))}
                     </motion.div>
                 ))}
             </div>
