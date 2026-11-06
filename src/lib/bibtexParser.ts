@@ -73,7 +73,7 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
       year,
       month: monthMapping[tags.month?.toLowerCase()] ? String(month) : tags.month,
       type,
-      status: /under review/i.test(tags.note || '') ? 'under-review' : /accepted/i.test(tags.note || '') ? 'accepted' : 'published',
+      status: /under revision/i.test(tags.note || '') ? 'under-revision' : /under review/i.test(tags.note || '') ? 'under-review' : /accepted/i.test(tags.note || '') ? 'accepted' : 'published',
       tags: keywords,
       keywords,
       researchArea: detectResearchArea(tags.title, keywords),

@@ -15,7 +15,7 @@ with `others`. The page emphasizes Mohan Lin and numbers each category separatel
 | wang2026ccer_microgrid | [National journal platform](https://coaa.istic.ac.cn/openjournal/periodicalArticle/0120260501611265): 王宇航、曾平良、陈哲、林墨涵、林达、唐雅洁. Names transliterated into English. |
 | liu2026hybrid_game | [Chinese DOI registry](https://www.chndoi.org/Resolution/Handler?doi=10.13335/j.1000-3673.pst.2026.0413): 刘梓洋、施政远、林墨涵、陈超、陈宇昊、曾平良. Names transliterated into English. |
 | ma2025thermal_comfort | [Publisher](https://www.sciencedirect.com/science/article/abs/pii/S2213138825005648), [Crossref](https://api.crossref.org/works/10.1016%2Fj.seta.2025.104733) |
-| lin2026ptsa_correlated_pbox | Complete ordered list in the user's reference screenshot, also on [Bendong Tan's publications page](https://tbendong.github.io/Publications/). Remains under review. |
+| lin2026ptsa_correlated_pbox | Complete ordered list in the user's reference screenshot, also on [Bendong Tan's publications page](https://tbendong.github.io/Publications/). Status updated to **Under revision** directly by the user on 2026-11-06. |
 | wang2026probabilistic_load_margin | Title, complete author order (Yifan Wang, Mohan Lin, Bendong Tan, Dawei Qiu), Applied Energy submission, and under-review status supplied directly by the user on 2026-11-06. |
 | lin2026icpies_bayesian | [Crossref](https://api.crossref.org/works/10.1109%2FICPIES69888.2026.11650859), [user's Google Scholar](https://scholar.google.com/citations?user=UMiKwhUAAAAJ&pagesize=100) |
 | lin2023ei2_mixed_game | [Crossref](https://api.crossref.org/works/10.1109%2FEI259745.2023.10512839) |

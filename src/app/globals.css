@@ -250,6 +250,17 @@ body {
 /* Accessible navigation and readable long scientific titles. */
 :focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 4px; }
 pre { overflow-wrap: anywhere; }
+
+/* Justified citations use the browser's English hyphenation dictionary. */
+.publication-citation {
+  text-align: justify;
+  text-align-last: left;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  overflow-wrap: break-word;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
