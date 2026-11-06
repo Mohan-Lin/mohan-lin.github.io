@@ -1,20 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import {
-    MagnifyingGlassIcon,
-    FunnelIcon,
-    CalendarIcon,
-    BookOpenIcon,
-    ClipboardDocumentIcon,
-    DocumentTextIcon
-} from '@heroicons/react/24/outline';
-import { Publication } from '@/types/publication';
+import { Publication, PublicationType } from '@/types/publication';
 import { PublicationPageConfig } from '@/types/page';
-import { cn } from '@/lib/utils';
-import { useMessages } from '@/lib/i18n/useMessages';
 import FormattedBibTeXText from './FormattedBibTeXText';
 
 interface PublicationsListProps {
@@ -23,336 +10,94 @@ interface PublicationsListProps {
     embedded?: boolean;
 }
 
-function publicationTypeLabel(type: Publication['type']): string {
-    if (type === 'manuscript') return 'In submission';
-    if (type === 'patent') return 'Patent application';
-    return type.replace(/-/g, ' ').replace(/\b\w/g, letter => letter.toUpperCase());
-}
+const sections: { title: string; id: string; types: PublicationType[]; prefix: string }[] = [
+    { title: 'In submission', id: 'in-submission', types: ['manuscript', 'preprint'], prefix: 'J' },
+    { title: 'Journal Paper', id: 'journal-paper', types: ['journal'], prefix: 'J' },
+    { title: 'Conference Paper', id: 'conference-paper', types: ['conference', 'workshop'], prefix: 'C' },
+    { title: 'Patent', id: 'patent', types: ['patent'], prefix: 'P' },
+    { title: 'Other Publications', id: 'other-publications', types: ['book-chapter', 'book', 'thesis', 'technical-report'], prefix: 'O' },
+];
 
 export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
-    const messages = useMessages();
-    const [searchQuery, setSearchQuery] = useState('');
-    const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
-    const [selectedType, setSelectedType] = useState<string | 'all'>('all');
-    const [showFilters, setShowFilters] = useState(true);
-    const [expandedBibtexId, setExpandedBibtexId] = useState<string | null>(null);
-    const [expandedAbstractId, setExpandedAbstractId] = useState<string | null>(null);
-
-    // Extract unique years and types for filters
-    const years = useMemo(() => {
-        const uniqueYears = Array.from(new Set(publications.map(p => p.year)));
-        return uniqueYears.sort((a, b) => b - a);
-    }, [publications]);
-
-    const types = useMemo(() => {
-        const uniqueTypes = Array.from(new Set(publications.map(p => p.type)));
-        return uniqueTypes.sort();
-    }, [publications]);
-
-    // Filter publications
-    const filteredPublications = useMemo(() => {
-        return publications.filter(pub => {
-            const matchesSearch =
-                pub.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                pub.authors.some(author => author.name.toLowerCase().includes(searchQuery.toLowerCase())) ||
-                pub.journal?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                pub.conference?.toLowerCase().includes(searchQuery.toLowerCase());
-
-            const matchesYear = selectedYear === 'all' || pub.year === selectedYear;
-            const matchesType = selectedType === 'all' || pub.type === selectedType;
-
-            return matchesSearch && matchesYear && matchesType;
-        });
-    }, [publications, searchQuery, selectedYear, selectedType]);
-
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-        >
-            <div className="mb-8">
-                <h1 className={`${embedded ? "text-2xl" : "text-4xl"} font-serif font-bold text-primary mb-4`}>{config.title}</h1>
-                {config.description && (
-                    <p className={`${embedded ? "text-base" : "text-lg"} text-neutral-600 dark:text-neutral-500 max-w-2xl`}>
-                        {config.description}
-                    </p>
-                )}
-            </div>
+        <div className="publications-page">
+            <h1 className={`${embedded ? 'text-2xl' : 'text-4xl'} font-serif font-bold text-primary mb-10`}>
+                {config.title}
+            </h1>
 
-            {/* Search and Filter Controls */}
-            <div className="mb-8 space-y-4">
-                {/* ... (keep existing controls) ... */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                    <div className="relative flex-grow">
-                        <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-neutral-400" />
-                        <input
-                            type="text"
-                            aria-label="Search publications"
-                            placeholder={messages.publications.searchPlaceholder}
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
-                        />
-                    </div>
-                    <button
-                        onClick={() => setShowFilters(!showFilters)}
-                        className={cn(
-                            "flex items-center justify-center px-4 py-2 rounded-lg border transition-all duration-200",
-                            showFilters
-                                ? "bg-accent text-white border-accent"
-                                : "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-600 hover:border-accent hover:text-accent"
-                        )}
-                    >
-                        <FunnelIcon className="h-5 w-5 mr-2" />
-                        {messages.publications.filters}
-                    </button>
-                </div>
+            <div className="space-y-12">
+                {sections.map(section => {
+                    // The bibliography supplies the date order within each category.
+                    const entries = publications.filter(pub => section.types.includes(pub.type));
+                    if (entries.length === 0) return null;
 
-                <AnimatePresence>
-                    {showFilters && (
-                        <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="overflow-hidden"
-                        >
-                            <div className="p-4 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-wrap gap-6">
-                                {/* Year Filter */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300 flex items-center">
-                                        <CalendarIcon className="h-4 w-4 mr-1" /> {messages.publications.year}
-                                    </label>
-                                    <div className="flex flex-wrap gap-2">
-                                        <button
-                                            onClick={() => setSelectedYear('all')}
-                                            className={cn(
-                                                "px-3 py-1 text-xs rounded-full transition-colors",
-                                                selectedYear === 'all'
-                                                    ? "bg-accent text-white"
-                                                    : "bg-white dark:bg-neutral-800 text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700"
-                                            )}
-                                        >
-                                            {messages.common.all}
-                                        </button>
-                                        {years.map(year => (
-                                            <button
-                                                key={year}
-                                                onClick={() => setSelectedYear(year)}
-                                                className={cn(
-                                                    "px-3 py-1 text-xs rounded-full transition-colors",
-                                                    selectedYear === year
-                                                        ? "bg-accent text-white"
-                                                        : "bg-white dark:bg-neutral-800 text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700"
-                                                )}
-                                            >
-                                                {year}
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
+                    return (
+                        <section key={section.id} aria-labelledby={section.id}>
+                            <h2 id={section.id} className="text-2xl font-serif text-primary border-b border-accent/50 pb-3 mb-5 scroll-mt-28">
+                                {section.title}
+                            </h2>
+                            <ol className="list-none space-y-6" role="list">
+                                {entries.map((pub, index) => {
+                                    const paperUrl = pub.doi ? `https://doi.org/${pub.doi}` : pub.url;
+                                    const venue = pub.journal || pub.conference;
+                                    const number = `${section.prefix}${index + 1}`;
 
-                                {/* Type Filter */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300 flex items-center">
-                                        <BookOpenIcon className="h-4 w-4 mr-1" /> {messages.publications.type}
-                                    </label>
-                                    <div className="flex flex-wrap gap-2">
-                                        <button
-                                            onClick={() => setSelectedType('all')}
-                                            className={cn(
-                                                "px-3 py-1 text-xs rounded-full transition-colors",
-                                                selectedType === 'all'
-                                                    ? "bg-accent text-white"
-                                                    : "bg-white dark:bg-neutral-800 text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700"
-                                            )}
-                                        >
-                                            {messages.common.all}
-                                        </button>
-                                        {types.map(type => (
-                                            <button
-                                                key={type}
-                                                onClick={() => setSelectedType(type)}
-                                                className={cn(
-                                                    "px-3 py-1 text-xs rounded-full transition-colors",
-                                                    selectedType === type
-                                                        ? "bg-accent text-white"
-                                                        : "bg-white dark:bg-neutral-800 text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700"
-                                                )}
-                                            >
-                                                {publicationTypeLabel(type)}
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
+                                    return (
+                                        <li key={pub.id} id={pub.id} className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-2 scroll-mt-28">
+                                            <span className="font-semibold text-primary leading-8 tabular-nums">[{number}]</span>
+                                            <div className="min-w-0">
+                                                <p className="text-base leading-8 text-neutral-700">
+                                                    {pub.authors.map((author, idx) => (
+                                                        <span key={`${pub.id}-${idx}`}>
+                                                            {idx > 0 && (idx === pub.authors.length - 1 && author.name !== 'et al.'
+                                                                ? (pub.authors.length === 2 ? ' and ' : ', and ')
+                                                                : ', ')}
+                                                            {author.isHighlighted
+                                                                ? <strong className="font-bold text-primary">{author.name}</strong>
+                                                                : <span>{author.name}</span>}
+                                                            {author.isCorresponding && <sup>*</sup>}
+                                                        </span>
+                                                    ))}
+                                                    {', “'}
+                                                    {paperUrl ? (
+                                                        <a href={paperUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent underline-offset-4 hover:underline transition-colors">
+                                                            <FormattedBibTeXText nodes={pub.titleNodes} fallback={pub.title} />
+                                                        </a>
+                                                    ) : <FormattedBibTeXText nodes={pub.titleNodes} fallback={pub.title} />}
+                                                    {',” '}
+                                                    {venue && <><em>{venue}</em>{', '}</>}
+                                                    {pub.volume && <>vol. {pub.volume}, </>}
+                                                    {pub.issue && <>no. {pub.issue}, </>}
+                                                    {pub.pages && <>{pub.pages.includes('-') ? 'pp.' : 'Art. no.'} {pub.pages.replaceAll('--', '–')}, </>}
+                                                    {pub.year}.
+                                                    {pub.description && <> <span className="text-neutral-600">({pub.description.replace(/[.]$/, '')})</span></>}
+                                                </p>
 
-            {/* Publications Grid */}
-            <p className="mb-4 text-sm text-neutral-500" aria-live="polite">{filteredPublications.length} of {publications.length} entries</p>
-            <div className="space-y-6">
-                {filteredPublications.length === 0 ? (
-                    <div className="text-center py-12 text-neutral-500">
-                        {messages.publications.noResults}
-                    </div>
-                ) : (
-                    filteredPublications.map((pub, index) => (
-                        <motion.div
-                            key={pub.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: Math.min(0.04 * index, 0.2) }}
-                            className="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200"
-                        >
-                            <div className="flex flex-col md:flex-row gap-6">
-                                {pub.preview && (
-                                    <div className="w-full md:w-48 flex-shrink-0">
-                                        <div className="aspect-video md:aspect-[4/3] relative rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-                                            <Image
-                                                src={`/papers/${pub.preview}`}
-                                                alt={pub.title}
-                                                fill
-                                                className="object-cover"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            />
-                                        </div>
-                                    </div>
-                                )}
-                                <div className="flex-grow">
-                                    <div className="flex flex-wrap gap-2 mb-3 text-xs font-medium">
-                                        <span className="rounded-full bg-neutral-100 text-neutral-700 px-3 py-1">{publicationTypeLabel(pub.type)}</span>
-                                        {pub.status === 'under-review' && <span className="rounded-full bg-accent/10 text-accent-dark px-3 py-1">Under review</span>}
-                                        {pub.status === 'accepted' && <span className="rounded-full bg-accent/10 text-accent-dark px-3 py-1">Accepted</span>}
-                                    </div>
-                                    <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary mb-2 leading-tight`}>
-                                        <FormattedBibTeXText nodes={pub.titleNodes} fallback={pub.title} />
-                                    </h3>
-                                    <p className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-400 mb-2`}>
-                                        {pub.authors.map((author, idx) => (
-                                            <span key={idx}>
-                                                <span className={`${author.isHighlighted ? 'font-semibold text-accent' : ''} ${author.isCoAuthor ? `underline underline-offset-4 ${author.isHighlighted ? 'decoration-accent' : 'decoration-neutral-400'}` : ''}`}>
-                                                    {author.name}
-                                                </span>
-                                                {author.isCorresponding && (
-                                                    <sup className={`ml-0 ${author.isHighlighted ? 'text-accent' : 'text-neutral-600 dark:text-neutral-400'}`}>†</sup>
-                                                )}
-                                                {idx < pub.authors.length - 1 && ', '}
-                                            </span>
-                                        ))}
-                                    </p>
-                                    <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
-                                        {pub.journal || pub.conference} {pub.year}{pub.volume && `, ${pub.volume}`}{pub.issue && `(${pub.issue})`}{pub.pages && `, ${pub.pages.replaceAll('--', '–')}`}
-                                    </p>
-
-                                    {pub.description && (
-                                        <p className="text-sm text-neutral-600 dark:text-neutral-500 mb-4 line-clamp-3">
-                                            {pub.description}
-                                        </p>
-                                    )}
-
-                                    <div className="flex flex-wrap gap-2 mt-auto">
-                                        {pub.doi && (
-                                            <a
-                                                href={`https://doi.org/${pub.doi}`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
-                                            >
-                                                DOI
-                                            </a>
-                                        )}
-                                        {pub.url && !pub.doi && <a href={pub.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 text-neutral-700 hover:bg-accent hover:text-white">Source</a>}
-                                        {pub.code && (
-                                            <a
-                                                href={pub.code}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
-                                            >
-                                                {messages.publications.code}
-                                            </a>
-                                        )}
-                                        {pub.abstract && (
-                                            <button
-                                                onClick={() => setExpandedAbstractId(expandedAbstractId === pub.id ? null : pub.id)}
-                                                className={cn(
-                                                    "inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors",
-                                                    expandedAbstractId === pub.id
-                                                        ? "bg-accent text-white"
-                                                        : "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white"
-                                                )}
-                                            >
-                                                <DocumentTextIcon className="h-3 w-3 mr-1.5" />
-                                                {messages.publications.abstract}
-                                            </button>
-                                        )}
-                                        {pub.bibtex && (
-                                            <button
-                                                onClick={() => setExpandedBibtexId(expandedBibtexId === pub.id ? null : pub.id)}
-                                                className={cn(
-                                                    "inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors",
-                                                    expandedBibtexId === pub.id
-                                                        ? "bg-accent text-white"
-                                                        : "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white"
-                                                )}
-                                            >
-                                                <BookOpenIcon className="h-3 w-3 mr-1.5" />
-                                                {messages.publications.bibtex}
-                                            </button>
-                                        )}
-                                    </div>
-
-                                    <AnimatePresence>
-                                        {expandedAbstractId === pub.id && pub.abstract ? (
-                                            <motion.div
-                                                key="abstract"
-                                                initial={{ opacity: 0, height: 0 }}
-                                                animate={{ opacity: 1, height: 'auto' }}
-                                                exit={{ opacity: 0, height: 0 }}
-                                                className="overflow-hidden mt-4"
-                                            >
-                                                <div className="bg-neutral-50 dark:bg-neutral-800 rounded-lg p-4 border border-neutral-200 dark:border-neutral-700">
-                                                    <p className="text-sm text-neutral-600 dark:text-neutral-500 leading-relaxed">
-                                                        {pub.abstract}
-                                                    </p>
+                                                <div className="publication-links mt-1 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-xs text-neutral-500">
+                                                    {paperUrl && <a href={paperUrl} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">{pub.doi ? 'DOI' : 'Source'}<span className="sr-only"> for {pub.title}</span></a>}
+                                                    {pub.code && <a href={pub.code} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Code<span className="sr-only"> for {pub.title}</span></a>}
+                                                    {pub.abstract && (
+                                                        <details className="basis-full">
+                                                            <summary className="w-fit cursor-pointer hover:text-accent">Abstract<span className="sr-only"> for {pub.title}</span></summary>
+                                                            <p className="mt-3 text-sm leading-relaxed text-neutral-600">{pub.abstract}</p>
+                                                        </details>
+                                                    )}
+                                                    {pub.bibtex && (
+                                                        <details className="basis-full">
+                                                            <summary className="w-fit cursor-pointer hover:text-accent">BibTeX<span className="sr-only"> for {pub.title}</span></summary>
+                                                            <pre className="mt-3 overflow-x-auto whitespace-pre-wrap break-words rounded-md border border-neutral-200 bg-neutral-50 p-4 text-xs leading-relaxed text-neutral-600">{pub.bibtex}</pre>
+                                                        </details>
+                                                    )}
                                                 </div>
-                                            </motion.div>
-                                        ) : null}
-                                        {expandedBibtexId === pub.id && pub.bibtex ? (
-                                            <motion.div
-                                                key="bibtex"
-                                                initial={{ opacity: 0, height: 0 }}
-                                                animate={{ opacity: 1, height: 'auto' }}
-                                                exit={{ opacity: 0, height: 0 }}
-                                                className="overflow-hidden mt-4"
-                                            >
-                                                <div className="relative bg-neutral-50 dark:bg-neutral-800 rounded-lg p-4 border border-neutral-200 dark:border-neutral-700">
-                                                    <pre className="text-xs text-neutral-600 dark:text-neutral-500 overflow-x-auto whitespace-pre-wrap font-mono">
-                                                        {pub.bibtex}
-                                                    </pre>
-                                                    <button
-                                                        onClick={() => {
-                                                            navigator.clipboard.writeText(pub.bibtex || '');
-                                                            // Optional: Show copied feedback
-                                                        }}
-                                                        className="absolute top-2 right-2 p-1.5 rounded-md bg-white dark:bg-neutral-700 text-neutral-500 hover:text-accent shadow-sm border border-neutral-200 dark:border-neutral-600 transition-colors"
-                                                        title={messages.common.copyToClipboard}
-                                                    >
-                                                        <ClipboardDocumentIcon className="h-4 w-4" />
-                                                    </button>
-                                                </div>
-                                            </motion.div>
-                                        ) : null}
-                                    </AnimatePresence>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))
-                )}
+                                            </div>
+                                        </li>
+                                    );
+                                })}
+                            </ol>
+                        </section>
+                    );
+                })}
             </div>
-        </motion.div>
+        </div>
     );
 }
