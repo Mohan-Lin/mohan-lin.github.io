@@ -81,6 +81,7 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
       // Optional fields
       journal: cleanBibTeXString(tags.journal || tags.howpublished),
       conference: cleanBibTeXString(tags.booktitle),
+      language: cleanBibTeXString(tags.language),
       volume: tags.volume,
       issue: tags.number,
       pages: tags.pages,
