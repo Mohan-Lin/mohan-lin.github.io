@@ -7,3 +7,4 @@
 - Electric Power Systems Research
 - Global Energy Interconnection
 - Energy Strategy Reviews
+- IET Smart Grid
