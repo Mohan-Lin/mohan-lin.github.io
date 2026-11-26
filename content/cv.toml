@@ -2,3 +2,24 @@ type = "text"
 title = "CV"
 description = "Mohan Lin · Control Science and Engineering"
 source = "cv.md"
+
+[[education]]
+institution = "The Hong Kong Polytechnic University"
+role = "Visiting Ph.D. Student · Electrical and Electronic Engineering"
+dates = "Dec 2025 – Present"
+location = "Hong Kong SAR, China"
+supervisor = "Prof. Bendong Tan"
+
+[[education]]
+institution = "Hangzhou Dianzi University"
+role = "Ph.D. Candidate · Control Science and Engineering"
+dates = "Sep 2022 – Jun 2027 (expected)"
+location = "Hangzhou, China"
+supervisor = "Prof. Pingliang Zeng"
+
+[[education]]
+institution = "Hangzhou Dianzi University"
+role = "B.E. · Electrical Engineering and Automation"
+dates = "Sep 2018 – Jun 2022"
+location = "Hangzhou, China"
+supervisor = "Prof. Chenxi Wu"

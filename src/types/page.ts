@@ -9,9 +9,18 @@ export interface PublicationPageConfig extends BasePageConfig {
     source: string;
 }
 
+interface EducationEntry {
+    institution: string;
+    role: string;
+    dates: string;
+    location: string;
+    supervisor: string;
+}
+
 export interface TextPageConfig extends BasePageConfig {
     type: 'text';
     source: string;
+    education?: EducationEntry[];
 }
 
 export interface CardItem {

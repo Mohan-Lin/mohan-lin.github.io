@@ -26,6 +26,28 @@ export default function TextPage({ config, content, embedded = false }: TextPage
             )}
             {config.title === 'CV' && <button onClick={() => window.print()} className="cv-print-button mb-6 px-4 py-2 rounded-lg border border-neutral-300 text-sm text-primary hover:border-accent">Print / Save PDF</button>}
             <div className="text-neutral-700 dark:text-neutral-600 leading-relaxed">
+                {config.education?.length ? (
+                    <section aria-labelledby="cv-education">
+                        <h2 id="cv-education" className="text-2xl font-serif font-bold text-primary mt-8 mb-4 border-b border-neutral-200 pb-2">
+                            Education &amp; Visiting Appointment
+                        </h2>
+                        <ul className="space-y-5">
+                            {config.education.map((entry) => (
+                                <li key={entry.role} className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-6">
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-primary">{entry.institution}</h3>
+                                        <p>{entry.role}</p>
+                                        <p className="text-sm">Supervisor: {entry.supervisor}</p>
+                                    </div>
+                                    <div className="text-right text-sm text-neutral-600 dark:text-neutral-500">
+                                        <p className="font-medium tabular-nums">{entry.dates}</p>
+                                        <p>{entry.location}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                ) : null}
                 <ReactMarkdown
                     components={{
                         h1: ({ children }) => <h1 className="text-3xl font-serif font-bold text-primary mt-8 mb-4">{children}</h1>,
