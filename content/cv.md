@@ -17,10 +17,6 @@
 - **Data Science:** Office, Origin.
 - **Optimization solver:** Gurobi.
 
-## Academic Services
-
-Applied Energy; International Journal of Electrical Power & Energy Systems; Sustainable Energy, Grids and Networks; Electric Power Systems Research; Global Energy Interconnection; Energy Strategy Reviews.
-
 ## Languages
 
 - **Chinese:** Native.

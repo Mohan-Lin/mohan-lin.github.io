@@ -24,7 +24,6 @@ export default function TextPage({ config, content, embedded = false }: TextPage
                     {config.description}
                 </p>
             )}
-            {config.title === 'CV' && <button onClick={() => window.print()} className="cv-print-button mb-6 px-4 py-2 rounded-lg border border-neutral-300 text-sm text-primary hover:border-accent">Print / Save PDF</button>}
             <div className="text-neutral-700 dark:text-neutral-600 leading-relaxed">
                 {config.education?.length ? (
                     <section aria-labelledby="cv-education">
