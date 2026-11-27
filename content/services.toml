@@ -1,4 +1,3 @@
 type = "text"
 title = "Services"
-description = "Academic peer review."
 source = "services.md"
